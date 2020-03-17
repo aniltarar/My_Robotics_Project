@@ -63,7 +63,7 @@ p_2.ChangeDutyCycle(0)
 
 #Motor control definitions:
 def forward(x):
-#   print("forward")
+    print("forward")
     GPIO.output(in1,GPIO.HIGH)
     GPIO.output(in3,GPIO.LOW)
     GPIO.output(in2,GPIO.LOW)
@@ -91,7 +91,7 @@ def stop():
     GPIO.output(in4,GPIO.LOW)
 
 def turn_right(x):
-    print("Turning to the right.")
+    print("Turning right.")
     GPIO.output(in1,GPIO.HIGH)
     GPIO.output(in3,GPIO.HIGH)
     GPIO.output(in2,GPIO.LOW)
@@ -102,7 +102,7 @@ def turn_right(x):
     sleep(x)
 
 def turn_left(x):
-    print("Turning to the left.")
+    print("Turning left.")
     GPIO.output(in1,GPIO.LOW)
     GPIO.output(in3,GPIO.LOW)
     GPIO.output(in2,GPIO.HIGH)
