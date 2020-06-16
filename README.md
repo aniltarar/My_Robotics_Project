@@ -1,6 +1,7 @@
 # My_Robotics_Project
 GUI Folder has the graphic user interface code using kivy library.
 
+keyboard_control Folder:
 The 'car_keyboard_control.py' is the code to control the robot via the keyboard. It is written in Python3 and uses 'curses' 
 library to assign tasks to keyboard keys.
 
