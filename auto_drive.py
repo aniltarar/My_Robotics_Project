@@ -150,6 +150,7 @@ def servo_centre():
     p_1.ChangeDutyCycle(0)
     p_2.ChangeDutyCycle(0)
 
+#Create a countdown function and add a sequenced buzzer once the counter hits '0.'
 def countdown(n):
     while n>0:
         print("Starting in ", n , "seconds.")
