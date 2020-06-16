@@ -1,0 +1,171 @@
+<CustomButton@Button>:
+    on_press: self.background_color = (0, .7, .2, .4)
+    on_release: self.background_color = (0, 0, 0, .4)
+    
+
+
+<CarGridLayout>:
+    id: carcontrol
+    display: entry
+    rows: 3
+    padding: 5
+    spacing: 5
+    canvas.before:
+        Color:
+            rgba: (.95,.95,.95,1)
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    
+    BoxLayout:
+                    
+        GridLayout:
+            rows: 3
+            padding:10
+            spacing: 10
+            
+            BoxLayout:
+                spacing: 5
+                
+                Label:
+               
+                Button:
+                    background_normal: '/home/pi/Desktop/python_scripts/kivy/Applications/car_app/images/servoup.png'    
+                    on_press:
+                        carcontrol.servo_up(self)
+                        
+                Label:
+                    
+            BoxLayout:
+                spacing:5
+                
+                Button:
+                    background_normal: '/home/pi/Desktop/python_scripts/kivy/Applications/car_app/images/servoleft.png'
+                    on_press: carcontrol.servo_left(self)
+                        
+                Button:
+                    background_normal: '/home/pi/Desktop/python_scripts/kivy/Applications/car_app/images/reset_1.png'
+                    on_press: carcontrol.servo_centre(self)
+                
+                Button:
+                    background_normal: '/home/pi/Desktop/python_scripts/kivy/Applications/car_app/images/servoright.png'
+                    on_press: carcontrol.servo_right(self)
+            
+            BoxLayout:
+                spacing: 5
+                
+                Label:
+                
+                Button:
+                    background_normal: '/home/pi/Desktop/python_scripts/kivy/Applications/car_app/images/servodown.png'
+                    on_press: carcontrol.servo_down(self)
+                    
+                Label: 
+                
+        Camera:
+            id: camera
+            resolution: (640, 480)
+            play: True
+            canvas.before:
+                PushMatrix
+                Rotate:
+                    angle: -180
+                    origin: self.center
+            canvas.after:
+                PopMatrix
+    
+    GridLayout:
+        size: root.width * 0.8, root.height * 0.8
+        row_default_height: 70
+        row_force_default: True
+        spacing:5
+        padding: 5
+        rows: 2
+        
+        TextInput:
+            id: entry
+            background_color: [0,0,0,.7]
+            cursor_color: [0.8,0,0,1]
+            foreground_color:[1,1,1,1]
+            outline_color:[0,0,0,0]
+            outline_width: 1
+            color: [0,0,0,0]
+            font_size: 24
+            multiline: True
+        
+        AnchorLayout:
+            padding: 5
+            anchor_x: 'right'
+            
+            CustomButton:
+                background_color: [0,0,0,.4]
+                color: [1,1,1,.8]
+                text: "Enter Text"
+                size_hint_x: None
+                width: 100
+                on_press:
+                    carcontrol.text_screen(entry.text)
+                on_release:
+                    entry.text = ""
+            
+        
+            AnchorLayout:
+                anchor_x: 'left'
+                CustomButton:
+                    background_color: [0,0,0,.4]
+                    color: [1,0,0,.6]
+                    text: "Temperature"
+                    size_hint_x: None
+                    width: 100
+                    on_press: carcontrol.temp(self.state)
+                    on_release: entry.text = ""
+
+                    
+            AnchorLayout:
+                anchor_x: 'center'
+                CustomButton:
+                    background_color: [0,0,0,.4]
+                    color: [0,0,.9,.6]
+                    size_hint_x: None
+                    width: 100
+                    text: 'BEEP!!!'
+                    on_press: carcontrol.beep_on(self.state)
+                    on_release: carcontrol.beep_off(self.state)
+                
+    GridLayout:
+        rows: 2
+        spacing:5
+        padding: 5
+        
+        BoxLayout:
+            Label:
+ 
+            Button:
+                background_normal: '/home/pi/Desktop/python_scripts/kivy/Applications/car_app/images/up_arrow.png'    
+                on_press: carcontrol.forward(self.state)
+                on_release: carcontrol.stop(self.state)
+                
+            Label:
+        
+        BoxLayout:
+            spacing: 5
+            padding: 5
+            Button:
+                background_normal: '/home/pi/Desktop/python_scripts/kivy/Applications/car_app/images/left_arrow.png'    
+                size_hint: (.5, 1)
+                on_press: carcontrol.left_turn(self.state)
+                on_release: carcontrol.stop(self.state)
+            
+            Button:
+                background_normal: '/home/pi/Desktop/python_scripts/kivy/Applications/car_app/images/down_arrow.png'    
+                size_hint: (.5,1)
+                on_press: carcontrol.backward(self.state)
+                on_release: carcontrol.stop(self.state)
+                
+            Button:
+                background_normal: '/home/pi/Desktop/python_scripts/kivy/Applications/car_app/images/right_arrow.png'    
+                size_hint: (.5,1)
+                on_press: carcontrol.right_turn(self.state)
+                on_release: carcontrol.stop(self.state)
+                
+        
