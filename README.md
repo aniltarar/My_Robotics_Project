@@ -1,15 +1,19 @@
-# My_Robotics_Project
-GUI Folder has the graphic user interface code using kivy library.
+# My Robotics Project (Archived)
 
-keyboard_control Folder:
-The 'car_keyboard_control.py' is the code to control the robot via the keyboard. It is written in Python3 and uses 'curses' 
-library to assign tasks to keyboard keys.
+This project showcases an interactive robotics system with diverse control methods. Although this is an older project and technologies have since evolved, the core concepts and skills demonstrated remain relevant and the project offers valuable insights into the potential of robotics and automation.
 
-Likewise 'servo_keyboard_control.py' is written in Python3 to allow controlling a camera attached pan/tilt servo with the 
-keyboard.
+The project repository is structured into different components, each focusing on specific functionalities:
 
-Finally, 'auto-drive.py' waits for the user to press the physical button on the car that initiates a countdown followed by a 
-sequenced buzzer. Then the car drives until its front mounted ultra-sonic distance sensor senses an object in front of the car. 
-Then the servo motors check both right and left directions and get a measurement of the distance on each side. After that turns 
-the car into the direction where the measurement is bigger. If the distance on each side is the same (very less likely) the car 
-decides which side to turn randomly.
+## GUI Folder 
+This section contains the code for the graphical user interface, which was developed using the Kivy library. The GUI provides an intuitive way for users to interact with the robot.
+
+## Keyboard Control Folder
+This contains two main programs, both written in Python3:
+
+- `car_keyboard_control.py`: This script allows the robotic car to be controlled via the keyboard, using the 'curses' library to map specific actions to keyboard inputs.
+- `servo_keyboard_control.py`: Similarly, this script enables a camera mounted on a pan/tilt servo to be controlled with the keyboard.
+
+## Auto-Drive Script
+The `auto-drive.py` script features a more autonomous functionality. When a physical button on the robotic car is pressed, it triggers a countdown followed by a sequenced buzzer. The car then starts to drive autonomously, stopping only when its front-mounted ultrasonic distance sensor detects an object in its path. It then uses the servo motors to check distances to the right and left. Based on these measurements, the car turns in the direction with the larger distance. In the unlikely event that both distances are equal, the car randomly selects a direction to turn.
+
+This project demonstrates my ability to create interactive and autonomous robotics systems, combining different control methods and implementing sensory feedback for autonomous decision-making.
